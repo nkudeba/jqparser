@@ -20,6 +20,7 @@ results = jsonPath;
 const rl = readline.createInterface({
   input: f.createReadStream(commands),
   output: process.stdout,
+  terminal: false
 });
 
 const start = async () => {
