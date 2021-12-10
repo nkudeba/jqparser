@@ -6,10 +6,7 @@ const f = require("fs");
 const jq = require("node-jq");
 
 const args = process.argv;
-console.log(args);
-
 const jsonPath = args[2];
-console.log(jsonPath);
 const options = { output: "json" };
 
 var commands = args[3];
