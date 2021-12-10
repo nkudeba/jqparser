@@ -1,0 +1,3 @@
+.object.a = 2
+.object.b = true
+.object.z = 5
