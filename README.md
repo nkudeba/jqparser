@@ -1,4 +1,4 @@
-# Automated .json parser for jq
+# Automated .json parser for node-jq
 
 ## How to use
 
