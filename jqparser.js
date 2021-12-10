@@ -23,18 +23,27 @@ const rl = readline.createInterface({
 });
 
 const start = async () => {
+  console.log("Updating configs...")
+  console.log("Successes will be logged in successes.txt; failure will be logged in errors.txt")
   for await (const line of rl) {
-    console.log(line);
-    filter = line;
-    console.log("myfilter is now: " + filter);
+    // console.log(line);
+    
     await jq
       .run(line, jsonPath, options)
       .then((output) => {
-        console.log(output);
+        // console.log(line);
         f.writeFileSync(jsonPath, JSON.stringify(output));
+        f.appendFile("./successes.txt", JSON.stringify(line) + "\r\n", (err) => {
+          if (err) throw err;
+          // console.log("complete!");
+        });
       })
       .catch((err) => {
         console.error(err);
+        f.appendFile("./errors.txt", JSON.stringify(line) + "\r\n", (err) => {
+          if (err) throw err;
+          console.log("failed!");
+        });
         // Something went wrong...
       });
   }
