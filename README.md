@@ -1,4 +1,4 @@
-# Config Automator
+# Automated .json parser for jq
 
 ## How to use
 
